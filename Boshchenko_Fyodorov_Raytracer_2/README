@@ -1,0 +1,33 @@
+Optical laws
+
+	1. Shadowing
+		1.1. Scene now holds a boolean value that specifies whether we want to use shadows or not. Raytracer was updated to read the "Shadows" parameter. This value is used later to determine whether we want to calculate shadows or not.
+		1.2. Determining whether an object is shadowed is performed right before calculating the diffuse and the specular reflections for each of the light sources. To check whether an object is shadowed, we need to construct a ray from the hit point and the L vector (direction from the hit point to a light source). If the ray intersects anything on its way, then the object is shadowed.
+		1.3. One important aspect is that we should consider a floating-point accuracy problem when calculating an intersection. If we don't, then the final picture will be "grainy". To counter the problem, we compare the calculated t to the EPSILON constant which was added to the Object header.
+
+	2. Multiple light sources - done in Raytracer 1.
+
+	3. Reflection
+		3.1. Raytracer class was modified to handle the presence and the absence of the "MaxRecursionDepth" parameter. In case of the absense, the value is 0.
+		3.2. The reflection calculation was implemented as stated in the lab slides. That is, recursively and with a depth control.
+		3.3. If we just consider the reflected object as a light source, the reflected image is very bright. After some research, it was found that we should consider a "shinines" parameter. We set it to be 0.2 by default.
+
+Anti-aliasing
+
+	1. Raytracer class can now handle the presence and the absence of the "SuperSamplingFactor" parameter. In case of the absense, the value is 1.
+	2. The Scene::render method was changed to handle anti-aliasing. If we have SuperSamplingFactor = n, then the number of rays shot is n^2. Since the size of a pixel varies between 0 and 1, the axial distance between two neighbouring rays (step) is 1/n. However, the distance from a ray to the closest edge of a pixel is half-step, or 1/(2n).
+
+Texturing
+
+	1. Mapping textures
+		1.1. Raytracer class was modified to handle the presence and the absence of the "texture" parameter. If is assumed that either a "color" or a "texture" parameter present. If both are present, "texture" overlaps "color". If "color" is missing, the default color is grey (0.5, 0.5, 0.5).
+		1.2. Material class is responsible for storing and handling textures. If a parameter "texture" exists in a JSON file, then a Material object receives the name of the required texture, goes to a folder Scenes and loads a texture from there. NOTE: if you use some IDE like CLion, make sure that you correct the path to the Scenes folder in Material::setTexture method.
+		1.2.1. It was decided not to create a separate .cpp file for 'material.h', since Material::setTexture is the only method in the class and its size is 2 lines only. All methods defined inside a class automatically become inline functions, and since the method is very small, there is no need to define it outside of the class.
+		1.3. Before calculating the color at the reflected point of the object, Scene determines whether the object has a texture or just a solid color. If it has a texture, then it performs the mapping to determine the UV coordinates of a pixel on the texture. This method is currently implemented in Sphere only and it has to be implemented separately in the remaining shapes.
+		FEEDBACK: There are no screenshots provided for 'earthmap1k.png' since it takes an enormous time to perform calculations. Moreover, it has been determined that this is the fault of the provided image loader, since our algorithm determines the UV coordinates with O(1).
+	2. Rotation
+		2.1. Raytracer class was modified to handle the presence and the absence of the "rotation" and the "angle" parameters. The default value for "rotation" is (0, 0, 1) since it represents strictly vertical z-axis. The default value for "angle" is 0 degrees.
+		2.2. The algorithm chosen to fix the coordinates of any point on the surface of the sphere after rotation is the Rodrigues' rotation. It is implemented in the Sphere::rotatedPoint() method.
+
+OVERALL FEEDBACK:
+The screenshot provided has "SuperSamplingFactor" being 2 and "MaxRecursionDepth" being 2 as well, moreover, the screenshot contains the bluegrid texture only. This is due to a very inefficient way of retrieving the texture color by the requested coordinates
