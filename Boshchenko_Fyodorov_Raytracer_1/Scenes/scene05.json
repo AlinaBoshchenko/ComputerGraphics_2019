@@ -1,0 +1,28 @@
+{
+    "Eye": [
+        450,
+        500,
+        800
+    ],
+    "Lights": [
+        {
+            "position": [
+                1100,
+                600,
+                500
+            ],
+            "color": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "Objects": [
+        {
+            "type": "mesh",
+            "comment": "Cube",
+            "filepath": "../Scenes/cube.obj"
+        }
+    ]
+}

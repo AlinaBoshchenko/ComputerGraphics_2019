@@ -1,0 +1,3 @@
+/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/cmake-build-debug/CMakeFiles/ray.dir
+/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/cmake-build-debug/CMakeFiles/edit_cache.dir

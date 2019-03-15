@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ray"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ray">
+				<Option output="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/cmake-build-debug/ray" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 ray"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ray/fast">
+				<Option output="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/cmake-build-debug/ray" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 ray/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1\ (1)/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/image.cpp">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/image.h">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/lode/lodepng.cpp">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/lode/lodepng.h">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/main.cpp">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/mesh.cpp">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/mesh.h">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/objloader.cpp">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/objloader.h">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/raytracer.cpp">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/raytracer.h">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/scene.cpp">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/scene.h">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/shapes/cone.cpp">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/shapes/cone.h">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/shapes/cylinder.cpp">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/shapes/cylinder.h">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/shapes/example.cpp">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/shapes/example.h">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/shapes/sphere.cpp">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/shapes/sphere.h">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/shapes/triangle.cpp">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/shapes/triangle.h">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/triple.cpp">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/Code/triple.h">
+			<Option target="ray"/>
+		</Unit>
+		<Unit filename="/home/sping_wind/Downloads/Boshchenko_Fyodorov_Raytracer_1 (1)/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
