@@ -70,7 +70,7 @@ void MainView::initializeGL() {
     createShaderProgram();
     loadMesh(":/models/grid.obj", &grid_meshSize, &grid_meshVAO, &grid_meshVBO);
     loadMesh(":/models/cat.obj", &cat_meshSize, &cat_meshVAO, &cat_meshVBO);
-    loadMesh(":/models/sphere.obj", &cube_meshSize, &cube_meshVAO, &cube_meshVBO);
+    loadMesh(":/models/19354_Rubber_duck_v1.obj", &cube_meshSize, &cube_meshVAO, &cube_meshVBO);
 
     loadTextures();
 
@@ -175,12 +175,13 @@ void MainView::loadMesh(const char * filename, GLuint *meshSize, GLuint *meshVAO
 
 void MainView::loadTextures()
 {
-    glGenTextures(4, texturePtr);
+    glGenTextures(5, texturePtr);
 
-    loadTexture(":/textures/cat_diff.png", texturePtr[0]);
+    loadTexture(":/textures/cat.png", texturePtr[0]);
     loadTexture(":/textures/ea.jpg", texturePtr[1]);
-    loadTexture(":/textures/space.jpg", texturePtr[2]);
-     loadTexture(":/textures/rug_logo.png", texturePtr[3]);
+    loadTexture(":/textures/venus1.jpg", texturePtr[2]);
+    loadTexture(":/textures/rug_is_love.png", texturePtr[3]);
+    loadTexture(":/textures/space.jpg", texturePtr[4]);
 }
 
 void MainView::loadTexture(QString file, GLuint texturePtr)
@@ -211,7 +212,7 @@ void MainView::loadTexture(QString file, GLuint texturePtr)
  */
 void MainView::paintGL() {
     // Clear the screen before rendering
-    glClearColor(0.5f, 0.1f, 0.7f, 0.0f);
+    glClearColor(0.0f, 0.0f, 0.2f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // Activate the texture(s)
@@ -234,7 +235,7 @@ void MainView::paintGL() {
     QOpenGLShaderProgram *shaderProgram;
     switch (currentShader) {
         case NORMAL:
-            timeInc += 0.003;
+            timeInc += 0.002;
             shaderProgram = &normalShaderProgram;
             shaderProgram->bind();
             updateModelTransforms();
@@ -242,7 +243,6 @@ void MainView::paintGL() {
             glBindVertexArray(cat_meshVAO);
             updateNormalUniforms(modelNormalTransformCat, modelTransformCat);
             glDrawArrays(GL_TRIANGLES, 0, cat_meshSize);
-
             updateNormalUniforms(modelNormalTransformCat2, modelTransformCat2);
             glDrawArrays(GL_TRIANGLES, 0, cat_meshSize);
 
@@ -253,7 +253,7 @@ void MainView::paintGL() {
             glDrawArrays(GL_TRIANGLES, 0, cube_meshSize);
             break;
         case GOURAUD:
-            timeInc += 0.003;
+            timeInc += 0.002;
             shaderProgram = &gouraudShaderProgram;
             shaderProgram->bind();
             updateModelTransforms();
@@ -275,10 +275,15 @@ void MainView::paintGL() {
             updateGouraudUniforms(modelNormalTransformCube2, modelTransformCube2);
             glDrawArrays(GL_TRIANGLES, 0, cube_meshSize);
 
+            glBindTexture(GL_TEXTURE_2D, texturePtr[4]);
+            glBindVertexArray(grid_meshVAO);
+            updateGouraudUniforms(modelNormalTransformSpacegrid, modelTransformSpacegrid);
+            glDrawArrays(GL_TRIANGLES, 0, grid_meshSize);
+
 
             break;
         case PHONG:
-            timeInc += 0.003;
+            timeInc += 0.002;
             shaderProgram = &phongShaderProgram;
             shaderProgram->bind();
             updateModelTransforms();
@@ -297,12 +302,16 @@ void MainView::paintGL() {
             glDrawArrays(GL_TRIANGLES, 0, cube_meshSize);
 
             glBindTexture(GL_TEXTURE_2D, texturePtr[2]);
-            updateGouraudUniforms(modelNormalTransformCube2, modelTransformCube2);
+            updatePhongUniforms(modelNormalTransformCube2, modelTransformCube2);
             glDrawArrays(GL_TRIANGLES, 0, cube_meshSize);
 
+            glBindTexture(GL_TEXTURE_2D, texturePtr[4]);
+            glBindVertexArray(grid_meshVAO);
+            updatePhongUniforms(modelNormalTransformSpacegrid, modelTransformSpacegrid);
+            glDrawArrays(GL_TRIANGLES, 0, grid_meshSize);
             break;
         case WATER:
-            movement += 0.003;
+            movement += 0.002;
             shaderProgram = &waterShaderProgram;
             shaderProgram->bind();
             updateWaterUniforms();
@@ -384,32 +393,39 @@ void MainView::updateProjectionTransform(){
 }
 
 void MainView::updateModelTransforms(){
-    // The first cat, this one rotates around a single axis
+    // The first cat -NORMAL
     modelTransformCat.setToIdentity();
-    modelTransformCat.translate(1.5, 0, -4);
-    modelTransformCat.scale(scaleCat);
+    modelTransformCat.translate(2, -1, -6);
+    modelTransformCat.scale(scaleCat * 1.5);
     modelTransformCat.rotate(QQuaternion::fromEulerAngles(rotationCat + QVector3D(timeInc,0.0f,0.0f)*5)); // The rotation
     modelNormalTransformCat = modelTransformCat.normalMatrix();
 
-    // The first sphere - EARTH, this one moves around in the z-plane in a circle
+    // The first sphere - EARTH
     modelTransformCube.setToIdentity();
     modelTransformCube.translate(-0.5 - 1 * cos(timeInc) / 10, -0.3 + sin(timeInc) / 10,-4); // The translation
-    modelTransformCube.scale(scaleCube / 1.5);
+    modelTransformCube.scale(scaleCube);
     modelTransformCube.rotate(QQuaternion::fromEulerAngles(rotationCube)) ;
     modelNormalTransformCube = modelTransformCube.normalMatrix();
 
-    // The Second sphere - SPACE, this sphere has its scale continously change
+    // The Second sphere - VENUS
     modelTransformCube2.setToIdentity();
-    modelTransformCube2.translate(0, 0, -20);
-    modelTransformCube2.scale(scaleCube2);
+    modelTransformCube2.translate(0, 0, -19);
+    modelTransformCube2.scale(scaleCube2 * 8);
     modelTransformCube2.rotate(QQuaternion::fromEulerAngles(rotationCube2 + QVector3D(timeInc,-timeInc,timeInc)*2)) ; // The rotaion
     modelNormalTransformCube2 = modelTransformCube2.normalMatrix();
 
-    // The second cat, this cat rotates around all axis
+    // The second cat -RUG_CAT
     modelTransformCat2.setToIdentity();
     modelTransformCat2.translate(-1.5, 1, -4);
     modelTransformCat2.scale(scaleCat2 * fmod(timeInc / 10,3) * 0.1 + 0.2); //  The scaling
     modelTransformCat2.rotate(QQuaternion::fromEulerAngles(rotationCat2)) ;
+    modelNormalTransformCat2 = modelTransformCat2.normalMatrix();
+
+    // The spacegrid or background
+    modelTransformSpacegrid.setToIdentity();
+    modelTransformSpacegrid.translate(0, 0, -20);
+    modelTransformSpacegrid.scale(scaleSpacegrid * 2); //  The scaling
+    modelTransformSpacegrid.rotate(QQuaternion::fromEulerAngles(rotationSpacegrid + QVector3D(0.0f,0.0f,timeInc)*2));
     modelNormalTransformCat2 = modelTransformCat2.normalMatrix();
 
     // The water model, this model does not have anything extra added to it
@@ -435,6 +451,7 @@ void MainView::destroyModelBuffers(){
 
 void MainView::setRotation(int rotateX, int rotateY, int rotateZ){
     rotationCat = { static_cast<float>(rotateX), static_cast<float>(rotateY) , static_cast<float>(rotateZ) };
+   // rotationSpacegrid = { static_cast<float>(rotateX), static_cast<float>(rotateY) , static_cast<float>(rotateZ) };
     rotationCube = { static_cast<float>(rotateX), static_cast<float>(rotateY) , static_cast<float>(rotateZ) };
     rotationCat2 = { static_cast<float>(rotateX), static_cast<float>(rotateY) , static_cast<float>(rotateZ) };
     rotationCube2 = { static_cast<float>(rotateX), static_cast<float>(rotateY) , static_cast<float>(rotateZ) };
@@ -447,8 +464,9 @@ void MainView::setScale(int newScale){
     scaleCat = static_cast<float>(newScale) / 100.f;
     scaleCube = static_cast<float>(newScale) / 100.f;
     scaleCat2 = static_cast<float>(newScale) / 100.f;
-   // scaleCube2 = static_cast<float>(newScale) / 100.f;
+    scaleCube2 = static_cast<float>(newScale) / 100.f; //as it is far away
     scaleWater = static_cast<float>(newScale) / 100.f;
+    //no need to rotate the background ( spacegrid)
 
     updateModelTransforms();
 }

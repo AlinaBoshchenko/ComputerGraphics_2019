@@ -89,33 +89,44 @@ class MainView : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core {
     GLuint cube2_meshVBO;
     GLuint cube2_meshSize;
 
+    GLuint spacegrid_meshVAO;
+    GLuint spacegrid_meshVBO;
+    GLuint spacegrid_meshSize;
+
     // Texture
-    GLuint *texturePtr = new GLuint[4];
+    GLuint *texturePtr = new GLuint[5];
 
     // Transforms
     QMatrix4x4 projectionTransform;
     float timeInc = 0;
 
+
+    // Transforms for spacegrid
+    float scaleSpacegrid = 10.0f;
+    QVector3D rotationSpacegrid;
+    QMatrix3x3 modelNormalTransformSpacegrid;
+    QMatrix4x4 modelTransformSpacegrid;
+
     // Transforms for cat
-    float scaleCat = 0.5f;
+    float scaleCat = 1.f;
     QVector3D rotationCat;
     QMatrix3x3 modelNormalTransformCat;
     QMatrix4x4 modelTransformCat;
 
     // Transforms for cube
-    float scaleCube = 1.2f;
+    float scaleCube = 1.f;
     QVector3D rotationCube;
     QMatrix3x3 modelNormalTransformCube;
     QMatrix4x4 modelTransformCube;
 
     // Transforms for cat2
-    float scaleCat2 = 2.f;
+    float scaleCat2 = 1.f;
     QVector3D rotationCat2;
     QMatrix3x3 modelNormalTransformCat2;
     QMatrix4x4 modelTransformCat2;
 
     // Transforms for cube2
-    float scaleCube2 = 15.f;
+    float scaleCube2 = 1.f;
     QVector3D rotationCube2;
     QMatrix3x3 modelNormalTransformCube2;
     QMatrix4x4 modelTransformCube2;

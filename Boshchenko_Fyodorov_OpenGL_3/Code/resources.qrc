@@ -5,7 +5,6 @@
         <file>textures/cat_diff.png</file>
         <file>textures/cat_norm.png</file>
         <file>textures/cat_spec.png</file>
-        <file>textures/rug_logo.png</file>
         <file>models/cat.obj</file>
         <file>models/sphere.obj</file>
         <file>shaders/vertshader_phong.glsl</file>
@@ -21,5 +20,9 @@
         <file>textures/cot.png</file>
         <file>textures/ea.jpg</file>
         <file>textures/space.jpg</file>
+        <file>textures/rug_is_love.png</file>
+        <file>textures/cat.png</file>
+        <file>textures/venus1.jpg</file>
+        <file>models/19354_Rubber_duck_v1.obj</file>
     </qresource>
 </RCC>

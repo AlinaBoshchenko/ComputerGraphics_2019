@@ -29,6 +29,7 @@ out vec3 relativeLightPosition;
 out vec2 uvCoords_out;
 
 float waveHeight(int waveIDx, float uValue){
+
     float amp, freq, phas, height;
 
     amp = amplitude[waveIDx];
