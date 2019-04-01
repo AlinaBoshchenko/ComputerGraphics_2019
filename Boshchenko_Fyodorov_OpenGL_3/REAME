@@ -1,0 +1,38 @@
+README - OpenGl3
+-----------------------
+Description:
+
+Part 1 - Designing a scene
+
+For this assignment we designed a scene containing 5 objects: 2 cats, 2 spheres and a grid. We implemented our own textures designed in Adobe Photoshop, provided one and also open-source one. All the objects have different animating parameters. 
+
+Part 2 - Water animation
+
+For this part we made a simulation of the water surface based on the grid object. We implemented fluctuations with different amplitude for it to look more realistic. Also we made some experiments with parameters to achive nice texture and level of shininess. 
+
+-----------------------
+General:
+
+All objects could be rotated, scaled and set to default with the tumblers. For the first scene it is possible to choose among 3 types of shading. 
+-----------------------
+Technical:
+
+Part 1 - Designing a scene
+
+1. Modified loadMesh function to be able to load different objects. For current project 3 different meshes are loaded. 
+2. Changed texturePtr to array to be able to store different textures and load 5 textures in the loadTextures(). Moreover, modified loadTexture() to load multiple textures.
+3. In paintGl() changes in shading options were made to suit our textures. 
+4. UpdateModelTransform() is responsible for setting animation - it defines the rotation, scaling and translation of the object every time period. 
+5. In the header file we defined all needed variables, including timeInc for time increase (to make decent animation), parameters for objects like scaleCat, rotationSphere etc. 
+
+Part 2 - Water animation
+1. In the header file we defined all needed variables, including amplitude, frequency and phase. Also there are materialWater parameter for shininess and LightPositionWater and lightColourWater for lightning, 
+2. We added case WATER to the paintGl() and created vertex and fragmenr shaders for it. UpdateWaterUniforms() was also created. 
+3. Water model was also included in the UpdateModelTransform() to add animation.
+4. Fragment shader contains Ambient, Diffuse and Specular colours and light vectors, also by commenting the different lines it is possible to select  UV, Normal or Phong colours.
+5. Vertex shader deals with the height of fluctuations by implementing amplitude, frequency and phase. 
+
+-----------------------
+Feedback:
+
+We tried to add our own 3D objects, but despite the representation was good enough it was a kind of size limit, so the framework just didn't allow us to do that because of the size of the mesh. 
